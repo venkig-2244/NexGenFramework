@@ -1,23 +1,17 @@
-FROM joyzoursky/python-chromedriver:3.6-alpine3.7
+FROM selenium/standalone-chrome
+USER root
+
+RUN apt-get update && apt-get install python3-distutils -y
+RUN wget https://bootstrap.pypa.io/get-pip.py
+RUN python3 get-pip.py
+RUN python3 -m pip install selenium
 
 RUN mkdir packages
 ADD requirements.txt packages
 RUN pip install -r packages/requirements.txt
+ADD NexGenTest.py /
+ADD resources /
 
-
-ADD NexGenTest/NexGenTest.py /
-ADD NexGenTest/resources /
-
-
-
-
-RUN pip install pystrich
-RUN pip install selenium
-RUN pip install webdriver-manager
-
-RUN dpkg -i google-chrome-stable_current_amd64.deb
-RUN apt install google-chrome-stable_current_amd64.deb
-
-CMD [ "python", "./NexGenTest.py" ]
+CMD [ "python3", "./NexGenTest.py" ]
 
 
