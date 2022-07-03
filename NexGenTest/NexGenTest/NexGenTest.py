@@ -7,7 +7,7 @@ from time import sleep
 def main():
     print("NexGen Test starting..")
 
-    driverService = Service('C:\\ChromeDriver\\chromedriver.exe')
+    driverService = Service('..//resources//chromedriver.exe')
     driver = webdriver.Chrome(service=driverService)
     driver.get("http://www.google.com")
     
