@@ -3,11 +3,12 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from time import sleep
+from webdriver_manager.chrome import ChromeDriverManager
 
 def main():
     print("NexGen Test starting..")
 
-    driverService = Service('..//resources//chromedriver.exe')
+    driverService = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=driverService)
     driver.get("http://www.google.com")
     
