@@ -11,7 +11,6 @@ def main():
 
   #  driverService = Service(ChromeDriverManager().install())
     #driver = webdriver.Chrome(executable_path='../resources/chromedriver')
-    
 
     chrome_options = Options()
     chrome_options.add_argument("--headless")
@@ -29,6 +28,10 @@ def main():
     elem.send_keys("pycon")
     elem.send_keys(Keys.RETURN)
     
+    file = open("logs.txt")
+    file.write("Hello world")
+    file.close()
+
     print("Waiting... ")
     sleep(60)
     print("Before Quit function")
