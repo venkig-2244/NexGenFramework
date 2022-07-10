@@ -26,7 +26,7 @@ def main():
     chrome_options.experimental_options["prefs"] = chrome_prefs
     chrome_prefs["profile.default_content_settings"] = {"images": 2}
 
-    for i in range(0, 5):
+    while(True):
         logger.info("NexGen Test starting..")
         logger.info("Initializing Chromer driver..")
         driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
