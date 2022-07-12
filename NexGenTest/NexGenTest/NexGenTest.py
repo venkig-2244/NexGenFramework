@@ -12,7 +12,7 @@ def main():
     logfile_name = 'nexgen.log'
     logger.basicConfig(format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=logger.INFO)
     
-    handler = TimedRotatingFileHandler("nxtgen.log",
+    handler = TimedRotatingFileHandler(logfile_name,
                                        when="d",
                                        interval=1,
                                        backupCount=100)
